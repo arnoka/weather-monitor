@@ -27,9 +27,17 @@ jobs:
         with:
           php-version: 8.2
 
+      - name: Copy .env.testing
+        run: cp .env.testing .env
+
+      - name: Generate key
+        run: php artisan key:generate
+
       - name: Install dependencies
-        run: |
-          composer install --prefer-dist --no-progress --no-interaction
+        run: composer install --no-progress --no-interaction
+
+      - name: Run migrations
+        run: php artisan migrate --force
 
       - name: Run tests
         run: php artisan test
