@@ -16,4 +16,10 @@ class Country extends Model
         'iso2',
         'iso3',
     ];
+
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
+
 }

@@ -20,10 +20,11 @@ class WeatherQuery extends Model
         'timezone',
         'timezone_abbreviation',
         'elevation',
+        'city_id',
     ];
 
     public function queryable(): MorphTo
-{
-    return $this->morphTo();
-}
+    {
+        return $this->morphTo();
+    }
 }
